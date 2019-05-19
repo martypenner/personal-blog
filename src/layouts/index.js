@@ -29,7 +29,7 @@ const Template = props => {
           }}
           to={'/'}
         >
-          Gatsby Starter Blog
+          Marty's Blog
         </Link>
       </h1>
     )
@@ -50,7 +50,7 @@ const Template = props => {
           }}
           to={'/'}
         >
-          Gatsby Starter Blog
+          Marty's Blog
         </Link>
       </h3>
     )
