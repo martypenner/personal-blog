@@ -26,10 +26,10 @@ const Bio = props => {
         }}
       />
       <p>
-        Written by <strong>Kyle Mathews</strong> who lives and works in San
-        Francisco building useful things.{' '}
-        <a href="https://twitter.com/kylemathews">
-          You should follow him on Twitter
+        Written by <strong>Marty Penner</strong> who likes race cars, drums, and
+        works in London, Ontario, Canada building useful things.{' '}
+        <a href="https://twitter.com/MartyPenner">
+          You should follow him on Twitter or something
         </a>
       </p>
     </div>
