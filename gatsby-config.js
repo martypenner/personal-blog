@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: "Marty's Blog",
+    author: 'Marty Penner',
+    description:
+      'Software development-related nonsense/struggles/victories, because there are too few keystrokes left in my hands to waste them.',
+    siteUrl: 'https://penner.me',
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-61497950-1`,
       },
     },
     `gatsby-plugin-feed`,
