@@ -3,6 +3,8 @@ title: How I'm running this ghost blog in docker
 date: "2015-04-07T16:44:04.000Z"
 ---
 
+**_Update_**: I'm now running this on Netlify using Gatsby!
+
 May as well start simple, hey? I wanted to start a blog to help organize my thoughts in a public way, because surely I'm not the only one who can benefit from what I learn. Scott Hanselman talks about wasting your keystrokes:
 
 http://www.hanselman.com/blog/DoTheyDeserveTheGiftOfYourKeystrokes.aspx
