@@ -47,13 +47,12 @@ exports.createPages = ({ graphql, actions }) => {
             index === posts.length - 1 ? null : posts[index + 1].node
           const next = index === 0 ? null : posts[index - 1].node
 
-          // This is failing for some reason
-          // createPaginatedPages({
-          //   edges: result.data.allMarkdownRemark.edges,
-          //   createPage: createPage,
-          //   pageTemplate: 'src/templates/index.js',
-          //   pageLength: userConfig.postsPerPage,
-          // })
+          createPaginatedPages({
+            edges: result.data.allMarkdownRemark.edges,
+            createPage: createPage,
+            pageTemplate: 'src/templates/index.js',
+            pageLength: userConfig.postsPerPage,
+          })
 
           createPage({
             path: post.node.fields.slug,
