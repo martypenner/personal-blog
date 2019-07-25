@@ -11,6 +11,8 @@ http://www.hanselman.com/blog/DoTheyDeserveTheGiftOfYourKeystrokes.aspx
 
 I hate waste of any kind, but time especially. So here we go.
 
+<!-- end -->
+
 ## Docker and Digital Ocean <3
 
 As you may have already determined, I'm running this blog using the ghost blogging platform inside of a [Docker container](https://docs.docker.com/engine/examples/). In case you don't know, Docker is a great way to "containerize" your apps, meaning you can define the application's environment alongside your app code. This is super great for ensuring consistency among your teammates, not to mention you avoid polluting your host machine with all kinds of dependencies. I don't know about you, but I hate **globally** changing PHP + Apache versions, booting redis, installing npm packages, etc. just to satisfy different project requirements (note the emphasis on **globally**; obviously, you'll need to satisfy your project's requirements by using the right tools). Docker is great for providing that much-needed isolation. [See here](https://docs.docker.com/installation/) for installation instructions.
