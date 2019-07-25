@@ -1,6 +1,6 @@
 ---
 title: How I'm running this ghost blog in docker
-date: "2015-04-07T16:44:04.000Z"
+date: '2015-04-07T16:44:04.000Z'
 ---
 
 **_Update_**: I'm now running this on Netlify using Gatsby!

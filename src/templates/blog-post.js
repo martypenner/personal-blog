@@ -1,65 +1,80 @@
-import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
+import React from 'react'
 
-import Bio from '../components/Bio'
-import { rhythm, scale } from '../utils/typography'
+import userConfig from '../../config'
 
-const BlogPostTemplate = props => {
-  const post = props.data.markdownRemark
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const { previous, next } = props.pathContext
+import Layout from './layout'
 
-  return (
-    <div>
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-      <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: 'block',
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        {post.frontmatter.date}
-      </p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
-      <Bio />
+import Article from '../components/Article'
+import ArticleHeader from '../components/ArticleHeader'
+import Button from '../components/Button'
+import Card from '../components/Card'
+import Container from '../components/Container'
+import FeaturedImage from '../components/FeaturedImage'
+import PageNav from '../components/PageNav'
+import Share from '../components/Share'
 
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          listStyle: 'none',
-          padding: 0,
-        }}
-      >
-        {previous && (
-          <li>
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          </li>
-        )}
+class BlogPostTemplate extends React.Component {
+  render() {
+    const post = this.props.data.markdownRemark
+    const author = get(this.props, 'data.site.siteMetadata.author')
+    const { previous, next } = this.props.pageContext
 
-        {next && (
-          <li>
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          </li>
-        )}
-      </ul>
-    </div>
-  )
+    let url = ''
+    if (typeof window !== `undefined`) {
+      url = window.location.href
+    }
+
+    return (
+      <Layout>
+        <Container>
+          <Helmet
+            title={`${post.frontmatter.title} | ${author}`}
+            htmlAttributes={{ lang: 'en' }}
+          >
+            <meta
+              name="description"
+              content={`${userConfig.title} | ${userConfig.description}`}
+            />
+          </Helmet>
+          <Card>
+            <ArticleHeader>
+              {post.frontmatter.featuredImage && (
+                <FeaturedImage
+                  sizes={post.frontmatter.featuredImage.childImageSharp.sizes}
+                />
+              )}
+              <h1>{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+              <span />
+            </ArticleHeader>
+            <Article>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </Article>
+            {userConfig.showShareButtons && (
+              <Share url={url} title={post.frontmatter.title} />
+            )}
+          </Card>
+
+          <PageNav>
+            {previous && (
+              <Button to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Button>
+            )}
+
+            {next && (
+              <Button to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Button>
+            )}
+          </PageNav>
+        </Container>
+      </Layout>
+    )
+  }
 }
 
 export default BlogPostTemplate

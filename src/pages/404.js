@@ -1,10 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+import H2 from '../components/H2'
 
-export default NotFoundPage
+const Wrapper = styled.div`
+  text-align: center;
+`
+
+function NotFound() {
+  return (
+    <Wrapper>
+      <H2>NOT FOUND</H2>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    </Wrapper>
+  )
+}
+
+export default NotFound

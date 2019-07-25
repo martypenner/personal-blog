@@ -1,57 +1,68 @@
+const userConfig = require('./config');
+
 module.exports = {
   siteMetadata: {
-    title: "Marty's Blog",
-    author: 'Marty Penner',
-    description:
-      'Software development-related nonsense/struggles/victories, because there are too few keystrokes left in my hands to waste them.',
-    siteUrl: 'https://penner.me',
+    title: userConfig.title,
+    author: userConfig.author,
+    description: userConfig.description,
+    siteUrl: userConfig.siteUrl
   },
+  pathPrefix: userConfig.pathPrefix,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+        name: 'pages'
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 700,
+              linkImagesToOriginal: false,
+              wrapperStyle: 'margin: 15px -30px !important'
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
+          'gatsby-remark-smartypants'
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-61497950-1`,
-      },
+        trackingId: `UA-61497950-1`
+      }
     },
     `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
+        name: userConfig.title,
+        short_name: userConfig.title,
+        start_url: userConfig.siteUrl,
+        background_color: '#fff',
+        theme_color: userConfig.primaryColor,
+        display: 'minimal-ui',
+        icon: 'src/main.jpg'
+      }
     },
-  ],
-}
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`
+  ]
+};
