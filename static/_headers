@@ -1,0 +1,6 @@
+/*
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Option: SAMEORIGIN
+
+/*.jpg
+  Access-Control-Allow-Origin: *
