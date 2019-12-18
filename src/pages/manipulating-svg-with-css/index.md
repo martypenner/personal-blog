@@ -3,7 +3,7 @@ title: Manipulating SVGs using CSS
 date: '2019-03-24T22:30:27.000Z'
 ---
 
-At the [company I currently work for](https://raceroster.com), I've been experimenting with using SVGs to show real-time theme updates as a user changes the theme colours in their branding settings. A more traditional approach would require using a set of `<div>` and `<span>` elements with border or background color CSS attributes to achieve this. I opted instead to try using SVGs instead, since path and color manipulation seemed to be one of their strong points. Here's a very basic example SVG:
+At the [Race Roster](https://raceroster.com), I've been experimenting with using SVGs to show real-time theme updates as a user changes the theme colours in their branding settings. A more traditional approach would require using a set of `<div>` and `<span>` elements with border or background color CSS attributes to achieve this. I opted instead to try using SVGs instead, since path and color manipulation seemed to be one of their strong points. Here's a very basic example SVG:
 
 <!-- end -->
 
