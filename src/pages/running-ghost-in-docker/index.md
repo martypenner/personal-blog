@@ -19,7 +19,7 @@ As you may have already determined, I'm running this blog using the ghost bloggi
 
 To start, I booted up a Digital Ocean droplet preconfigured with Docker:
 
-![Choosing Digital Ocean Docker droploet](./digital-ocean-droplet-type-list.png)
+![Choosing Digital Ocean Docker droplet](./digital-ocean-droplet-type-list.png)
 
 Note that I chose the Docker starting point instead of the Ghost droplet in the left column. I did this because I'll be sharing this droplet with other containerized apps, so I wanted to keep the host environment clean and stripped down.
 
