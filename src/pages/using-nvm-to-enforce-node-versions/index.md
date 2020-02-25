@@ -13,7 +13,7 @@ At work, we previously used docker to give us a common node version by running e
 - Watch/live-reload scripts didn't work sometimes for reasons I don't understand, meaning they had to run a full build for every change.
 - Other weird stuff I can't remember right now.
 
-Tools like [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) were made to deal with stuff like this, so why not use it? By maintaing the wrapper script, but adding `.nvmrc` files to each package, the wrapper can ensure that nvm installs the needed node version before running. It also avoids polluting your shell, so your active node version doesn't change simply because you ran `npm i` inside of a package. Works like a charm!
+Tools like [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) were made to deal with stuff like this, so why not use it? By modifying the previous wrapper script, but adding `.nvmrc` files to each package, the wrapper can ensure that nvm installs the needed node version before running. It also avoids polluting your shell, so your active node version doesn't change simply because you ran `npm i` inside of a package. Works like a charm!
 
 I also investigated [volta](https://volta.sh/), but it simply isn't ready for me to use yet, primarily because it doesn't allow installing "global" npm packages yet.
 
