@@ -19,4 +19,4 @@ I also investigated [volta](https://volta.sh/), but it simply isn't ready for me
 
 Here's the full code the wrapper script:
 
-<script src="https://gist.github.com/martypenner/583416cda8313d4419ef98aa658ff895.js"></script>
+<iframe src="https://gist.github.com/martypenner/583416cda8313d4419ef98aa658ff895.pibb"></iframe>
