@@ -8,7 +8,7 @@ Previously, we used docker to give us a common node version by running every nod
 - We couldn't use different node versions per package. This means we had to find the lowest common denominator among all packages, so we were stuck on an older, slower version with fewer features.
 - We couldn't debug node scripts the usual way because of the docker proxy.
 - Running e2e tests through a real browser required [installing and configuring XQuartz](https://www.cypress.io/blog/2019/05/02/run-cypress-with-a-single-docker-command/#Interactive-mode), which was really wonky and not easy to train people on.
-- Performance was *really bad*. People were waiting many minutes for basic builds to finish.
+- Performance was **really bad**. People were waiting many minutes for basic builds to finish.
 - `Ctrl + C` didn't always work because of terminal shenanigans between docker and the host, so you could end up with hanging processes.
 - Watch/live-reload scripts didn't work sometimes for reasons I don't understand, meaning they had to run a full build for every change.
 - Other weird stuff I can't remember right now.
@@ -19,4 +19,47 @@ I also investigated [volta](https://volta.sh/), but it simply isn't ready for me
 
 Here's the full code the wrapper script:
 
-<script src="https://gist.github.com/martypenner/583416cda8313d4419ef98aa658ff895.js"></script>
+```bash
+#!/usr/bin/env bash
+
+# This file mainly exists to be a facade for our watch/build/install scripts. By
+# providing a thin layer on top, we can theoretically change out the underlying
+# implementation without having to change our workflow too much.
+#
+# As of the time of this writing, we're enforcing the desired node and npm
+# versions within each package by using `.nvmrc`.
+
+# Fail fast
+set -euo pipefail
+
+# Set up nvm
+. "\$NVM_DIR/nvm.sh"
+nvm install
+
+COMMAND="\$1"
+
+case "\$1" in
+# Expose npx directly to do whatever we need
+  npx)
+    npx "\${@:2}"
+    ;;
+# Expose npm directly to do whatever we need
+  npm)
+    npm "\${@:2}"
+    ;;
+# Expose node directly to do whatever we need
+  node)
+    node "\${@:2}"
+    ;;
+# Remove all node_modules and bower components inside all packages
+  clean)
+    find . -type d -iname node_modules -maxdepth 3 -exec rm -rf {} +
+    find . -type d -iname bower_components -maxdepth 3 -exec rm -rf {} +
+    ;;
+
+  *)
+    echo "That command doesn't exist."
+    exit 1
+    ;;
+esac
+```
