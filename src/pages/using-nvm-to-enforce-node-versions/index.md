@@ -33,23 +33,23 @@ Here's the full code the wrapper script:
 set -euo pipefail
 
 # Set up nvm
-. "\$NVM_DIR/nvm.sh"
+. "$NVM_DIR/nvm.sh"
 nvm install
 
-COMMAND="\$1"
+COMMAND="$1"
 
-case "\$1" in
+case "$1" in
 # Expose npx directly to do whatever we need
   npx)
-    npx "\${@:2}"
+    npx "${@:2}"
     ;;
 # Expose npm directly to do whatever we need
   npm)
-    npm "\${@:2}"
+    npm "${@:2}"
     ;;
 # Expose node directly to do whatever we need
   node)
-    node "\${@:2}"
+    node "${@:2}"
     ;;
 # Remove all node_modules and bower components inside all packages
   clean)
