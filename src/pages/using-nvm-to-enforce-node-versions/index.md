@@ -1,5 +1,6 @@
 ---
 title: Using NVM to enforce node versions
+date: '2020-02-25T15:39:01.274Z'
 ---
 
 Previously, we used docker to give us a common node version by running every node and npm command through a wrapper script. This meant we wouldn't run into strange gotchas between different versions of node and npm. But it also created more problems:
