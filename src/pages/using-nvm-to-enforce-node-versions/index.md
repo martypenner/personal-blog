@@ -38,7 +38,7 @@ nvm install
 
 COMMAND="$1"
 
-case "$1" in
+case "$COMMAND" in
 # Expose npx directly to do whatever we need
   npx)
     npx "${@:2}"
