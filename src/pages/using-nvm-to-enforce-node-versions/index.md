@@ -39,19 +39,19 @@ nvm install
 COMMAND="$1"
 
 case "$COMMAND" in
-# Expose npx directly to do whatever we need
+  # Expose npx directly to do whatever we need
   npx)
     npx "${@:2}"
     ;;
-# Expose npm directly to do whatever we need
+  # Expose npm directly to do whatever we need
   npm)
     npm "${@:2}"
     ;;
-# Expose node directly to do whatever we need
+  # Expose node directly to do whatever we need
   node)
     node "${@:2}"
     ;;
-# Remove all node_modules and bower components inside all packages
+  # Remove all node_modules and bower components inside all packages
   clean)
     find . -type d -iname node_modules -maxdepth 3 -exec rm -rf {} +
     find . -type d -iname bower_components -maxdepth 3 -exec rm -rf {} +
