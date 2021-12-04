@@ -11,13 +11,12 @@ export function getStaticPaths() {
   }));
 }
 
-const { Content, title, description, publishDate, heroImage } =
-  Astro.props.post;
+const { Content, title, description, publishDate } = Astro.props.post;
 const { slug, readingTime } = getPostData(Astro.props.post);
-const permalink = `${Astro.site.href}${slug}`;
+const permalink = `${Astro.site.href}blog/${slug}`;
 ---
 
-<BaseLayout {title} {description} {permalink} current="blog">
+<BaseLayout {title} {description} {permalink} current="/">
   <header>
     <p>{publishDate} ~ {readingTime}</p>
     <h1>{title}</h1>
