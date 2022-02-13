@@ -5,6 +5,8 @@
   // more info https://twitter.com/Rich_Harris/status/1376578504704331778?s=20
 </script>
 
+<img class="rounded-full h-28 w-28 float-right" src="/assets/profile-pic.jpg" alt="My face against a white brick wall" />
+
 ## About
 
 Hey, I'm Marty! I help build great developer experiences, from documentation to dev tools.
