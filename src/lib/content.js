@@ -23,7 +23,7 @@ const rehypePlugins = [
 	],
 ];
 
-const allowedPosters = ['sw-yx'];
+const allowedPosters = ['martypenner'];
 const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header

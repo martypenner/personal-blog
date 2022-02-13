@@ -65,7 +65,7 @@
 		<div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard
 				title="Manipulating SVGs with CSS"
-				href="/manipulating-svgs-with-css"
+				href="/manipulating-svg-with-css"
 				stringData="Mar 2019"
 			/>
 			<FeatureCard
