@@ -85,7 +85,7 @@
 			/></svg
 		>
 	</div>
-	{#if !search}
+	<!-- {#if !search}
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
 		</h3>
@@ -102,7 +102,7 @@
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			All Posts
 		</h3>
-	{/if}
+	{/if} -->
 	{#if list.length}
 		<ul class="">
 			{#each list as item}
