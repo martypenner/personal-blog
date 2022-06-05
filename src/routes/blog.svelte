@@ -23,7 +23,6 @@
 <script>
 	import IndexCard from '../components/IndexCard.svelte';
 
-	export let page;
 	export let list;
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
@@ -132,7 +131,7 @@
 			No posts found for
 			<code>{search}</code>.
 		</div>
-		<button class="p-2 bg-slate-500" on:click={() => (search = '')}>Clear your search</button>
+		<button class="bg-slate-500 p-2" on:click={() => (search = '')}>Clear your search</button>
 	{:else}
 		<div class="prose dark:prose-invert">No blogposts found!</div>
 	{/if}
