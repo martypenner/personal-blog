@@ -11,7 +11,7 @@
 		confused: '😕',
 		heart: '❤️',
 		rocket: '🚀',
-		eyes: '👀',
+		eyes: '👀'
 	};
 </script>
 

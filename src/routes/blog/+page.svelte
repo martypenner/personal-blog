@@ -1,44 +1,57 @@
-<script context="module">
-	// export const prerender = true; // turned off so it refreshes quickly
-	export async function load({ params, fetch }) {
-		const res = await fetch(`/api/listContent.json`);
-		// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
-		// Object.entries(import.meta.glob('./*.md')).map(async ([path, page]) => {
-		if (res.status > 400) {
-			return {
-				status: res.status,
-				error: await res.text(),
-			};
-		}
-
-		/** @type {import('$lib/types').ContentItem[]} */
-		const items = await res.json();
-		return {
-			props: { items },
-			cache: {
-				maxage: 60, // 1 minute
-			},
-		};
-	}
-</script>
-
 <script>
-	import IndexCard from '../components/IndexCard.svelte';
+	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
-	export let list;
+	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
+
+	import IndexCard from '../../components/IndexCard.svelte';
+
+	/** @type {import('./$types').PageData} */
+	export let data;
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
-	export let items;
+	$: items = data.items;
 
+	function searchParamToArray(key) {
+		return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
+	}
+
+	let selectedCategories = searchParamToArray('show');
+	let search = $page.url.searchParams.get('filter') || '';
 	let inputEl;
+
+	$: if (browser) {
+		if (selectedCategories.length) {
+			$page.url.searchParams.set('show', selectedCategories.toString());
+		} else {
+			$page.url.searchParams.delete('show');
+		}
+		if (search) {
+			$page.url.searchParams.set('filter', search);
+		} else {
+			$page.url.searchParams.delete('filter');
+		}
+		goto(`?${$page.url.searchParams.toString()}`, { noscroll: true, keepfocus: true });
+	}
+
 	function focusSearch(e) {
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
-	let isTruncated = items.length > 20;
-	let search;
+	let isTruncated = items?.length > 20;
 	$: list = items
+		.filter((item) => {
+			if (selectedCategories.length) {
+				return selectedCategories
+					.map((element) => {
+						return element.toLowerCase();
+					})
+					.includes(item.category.toLowerCase());
+			}
+			return true;
+		})
 		.filter((item) => {
 			if (search) {
 				return item.title.toLowerCase().includes(search.toLowerCase());
@@ -49,8 +62,8 @@
 </script>
 
 <svelte:head>
-	<title>Swyxkit Blog Index</title>
-	<meta name="description" content="Latest Hacker News stories in the {list} category" />
+	<title>{SITE_TITLE} Blog Index</title>
+	<meta name="description" content={`Latest ${SITE_TITLE} posts`} />
 </svelte:head>
 
 <svelte:window on:keyup={focusSearch} />
@@ -84,6 +97,29 @@
 			/></svg
 		>
 	</div>
+	<div class="mb-12 mt-2 flex items-center ">
+		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
+		<div class="grid grid-cols-3 rounded-md shadow-sm sm:grid-cols-6">
+			{#each POST_CATEGORIES as availableCategory}
+				<div>
+					<input
+						id="category-{availableCategory}"
+						class="peer sr-only"
+						type="checkbox"
+						bind:group={selectedCategories}
+						value={availableCategory}
+					/>
+					<label
+						for="category-{availableCategory}"
+						class="inline-flex w-full cursor-pointer items-center justify-between border border-gray-200 bg-white px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
+					>
+						{availableCategory}
+					</label>
+				</div>
+			{/each}
+		</div>
+	</div>
+
 	<!-- {#if !search}
 		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
 			Most Popular
@@ -102,6 +138,7 @@
 			All Posts
 		</h3>
 	{/if} -->
+
 	{#if list.length}
 		<ul class="">
 			{#each list as item}
@@ -112,6 +149,7 @@
 						title={item.title}
 						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						ghMetadata={item.ghMetadata}
+						{item}
 					>
 						{item.description}
 					</IndexCard>

@@ -1,14 +1,14 @@
-import RSS from 'rss';
-import { SITE_TITLE, SITE_URL } from '$lib/siteConfig';
 import { listContent } from '$lib/content';
+import { SITE_TITLE, SITE_URL } from '$lib/siteConfig';
+import RSS from 'rss';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
 	const feed = new RSS({
 		title: SITE_TITLE + ' RSS Feed',
 		site_url: SITE_URL,
-		feed_url: SITE_URL + '/api/rss.xml',
+		feed_url: SITE_URL + '/api/rss.xml'
 	});
 
 	const allBlogs = await listContent();
@@ -17,17 +17,17 @@ export async function get() {
 			title: post.title,
 			url: SITE_URL + `/${post.slug}`,
 			date: post.date,
-			description: post.description,
+			description: post.description
 		});
 	});
 
-	return {
-		body: feed.xml({ indent: true }), // todo - nonindent if not human
+	// Suggestion (check for correctness before using):
+	return new Response(feed.xml({ indent: true }), {
 		headers: {
-			'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
-			'Content-Type': 'application/rss+xml',
-		},
-	};
+			'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
+			'Content-Type': 'application/rss+xml'
+		}
+	});
 }
 
 // misc notes for future users

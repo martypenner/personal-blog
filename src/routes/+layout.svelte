@@ -1,10 +1,7 @@
-<script context="module">
-	import { MY_TWITTER_HANDLE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
-</script>
-
 <script>
-	import '../tailwind.css';
+	import { MY_TWITTER_HANDLE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 	import Nav from '../components/Nav.svelte';
+	import '../tailwind.css';
 </script>
 
 <svelte:head>
@@ -14,8 +11,6 @@
 		title={'RSS Feed for ' + SITE_TITLE}
 		href="/rss.xml"
 	/>
-	<meta name="theme-color" content="#facc15" media="(prefers-color-scheme: light)" />
-	<meta name="theme-color" content="#3730a3" media="(prefers-color-scheme: dark)" />
 </svelte:head>
 
 <div class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
@@ -31,7 +26,7 @@
 		<div class="flex flex-col space-y-4">
 			<a class="text-gray-500 transition hover:text-gray-300" href="/">Home</a>
 			<a class="text-gray-500 transition hover:text-gray-300" href="/about">About</a>
-			<a class="text-gray-500 transition hover:text-gray-300" href="/api/rss.xml" rel="external">
+			<a class="text-gray-500 transition hover:text-gray-300" href="/rss.xml" rel="external">
 				RSS
 			</a>
 		</div>
@@ -52,6 +47,14 @@
 			>
 				GitHub
 			</a>
+			<!-- <a
+				class="text-gray-500 transition hover:text-gray-300"
+				target="_blank"
+				rel="noopener noreferrer"
+				href={MY_YOUTUBE}
+			>
+				YouTube
+			</a> -->
 		</div>
 	</div>
 	<p class="prose px-4 dark:prose-invert sm:px-8">

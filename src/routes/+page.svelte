@@ -1,23 +1,20 @@
-<script context="module">
+<script>
 	import {
-		SITE_URL,
-		REPO_URL,
-		SITE_TITLE,
-		SITE_DESCRIPTION,
 		DEFAULT_OG_IMAGE,
 		MY_TWITTER_HANDLE,
+		REPO_URL,
+		SITE_DESCRIPTION,
+		SITE_TITLE,
+		SITE_URL
 	} from '$lib/siteConfig';
-	export const prerender = true; // index page is most visited, lets prerender
-</script>
-
-<script>
 	import FeatureCard from '../components/FeatureCard.svelte';
+	export const prerender = true; // index page is most visited, lets prerender
 </script>
 
 <svelte:head>
 	<title>{SITE_TITLE}</title>
 	<link rel="canonical" href={SITE_URL} />
-	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/api/rss.xml'} />
+	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/rss.xml'} />
 	<meta property="og:url" content={SITE_URL} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={SITE_TITLE} />
@@ -53,9 +50,15 @@
 				<a href={REPO_URL}>View source here!</a>
 			</p>
 		</div>
-		<!-- <div
-				class="w-[80px] h-[80px] rounded-full sm:w-[176px] sm:h-[136px] relative mb-8 sm:mb-0 mr-auto bg-cyan-300 bg-opacity-25"
-			/> -->
+		<div
+			class="relative mb-8 mr-auto h-[80px] w-[80px] rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:h-[136px] sm:w-[176px]"
+		>
+			<img
+				class="relative mb-8 mr-auto w-[80px] rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:w-[176px]"
+				src="/swyx-ski.jpeg"
+				alt="swyx at Niseko"
+			/>
+		</div>
 	</div>
 
 	<section class="mb-16 w-full">
@@ -63,16 +66,13 @@
 			Featured Posts
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
+			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" stringData="Jan 2022" />
 			<FeatureCard
-				title="Manipulating SVGs with CSS"
-				href="/manipulating-svg-with-css"
-				stringData="Mar 2019"
+				title="Moving to a GitHub CMS"
+				href="/moving-to-a-github-cms"
+				stringData="Jan 2022"
 			/>
-			<FeatureCard
-				title="Using NVM to enforce node versions"
-				href="/using-nvm-to-enforce-node-versions"
-				stringData="Feb 2020"
-			/>
+			<FeatureCard title="HTML Ipsum demo" href="/moo" stringData="Jan 2022" />
 		</div>
 		<a
 			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"

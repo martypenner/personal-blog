@@ -6,8 +6,10 @@ node_modules
 /functions
 /static/tailwind.css
 /src/lib/sampledata.json
+.env
 
 # Local Netlify folder
 .netlify
 
 .dccache
+.eslintcache

@@ -1,7 +1,8 @@
 <script>
 	// href={item.slug} title={item.data.title} date={item.data.date}
 	export let href = '#';
-
+	/** @type {import('$lib/types').ContentItem} */
+	export let item = undefined;
 	/** @type {import('$lib/types').GHMetadata} */
 	export let ghMetadata = null;
 	export let title = 'Untitled post';
@@ -10,7 +11,6 @@
 </script>
 
 <a
-	sveltekit:prefetch
 	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100"
 	{href}
 	><div class="mb-8 w-full">
@@ -18,18 +18,22 @@
 			<h4 class="mb-2 w-full flex-auto text-lg font-medium md:text-xl">
 				{title}
 			</h4>
-			<div class="inline-flex flex-1 items-center">
-				{#if ghMetadata && ghMetadata.reactions.total_count}
-					<span
-						class=" mr-2 min-w-[2rem] font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
-						>{ghMetadata.reactions.total_count} ♥</span
-					>
-				{/if}
-				<p class="mb-4 w-32 text-left text-gray-500 md:mb-0 md:text-right">{stringData}</p>
-			</div>
 		</div>
 		<p class="text-gray-600 dark:text-gray-400">
 			<slot />
 		</p>
+		<div class="m-2 flex gap-4 text-left text-gray-500 md:mb-0 md:text-sm">
+			<!-- {JSON.stringify(item.readingTime)} -->
+			<p>{stringData}</p>
+			{#if item?.readingTime}
+				<p>{item?.readingTime}</p>
+			{/if}
+			{#if ghMetadata && ghMetadata.reactions.total_count}
+				<p class="">{ghMetadata.reactions.total_count} ♥</p>
+			{/if}
+			<button class="rounded-xl bg-gray-200 px-4 capitalize dark:bg-gray-700 dark:text-gray-400"
+				>{item?.category || 'blog'}</button
+			>
+		</div>
 	</div></a
 >

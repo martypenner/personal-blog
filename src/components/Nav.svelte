@@ -1,6 +1,6 @@
 <script>
-	import MobileMenu from './MobileMenu.svelte';
 	import { REPO_URL } from '$lib/siteConfig';
+	import MobileMenu from './MobileMenu.svelte';
 	import NavLink from './NavLink.svelte';
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
@@ -47,7 +47,7 @@
 		<!-- <a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
 			rel="external"
-			href={origin + '/api/rss.xml'}
+			href={origin + '/rss.xml'}
 			aria-label="RSS"
 		>
 			<svg

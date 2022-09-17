@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-auto';
 import { mdsvex } from 'mdsvex';
 import remarkGithub from 'remark-github';
 import remarkAbbr from 'remark-abbr';
@@ -10,27 +10,27 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 const mdsvexConfig = {
 	extensions: ['.svelte.md', '.md', '.svx'],
 	layout: {
-		_: './src/mdsvexlayout.svelte', // default mdsvex layout
+		_: './src/mdsvexlayout.svelte' // default mdsvex layout
 	},
 	remarkPlugins: [
 		[
 			remarkGithub,
 			{
 				// Use your own repository
-				repository: 'https://github.com/mvasigh/sveltekit-mdsvex-blog.git',
-			},
+				repository: 'https://github.com/mvasigh/sveltekit-mdsvex-blog.git'
+			}
 		],
-		remarkAbbr,
+		remarkAbbr
 	],
 	rehypePlugins: [
 		rehypeSlug,
 		[
 			rehypeAutolinkHeadings,
 			{
-				behavior: 'wrap',
-			},
-		],
-	],
+				behavior: 'wrap'
+			}
+		]
+	]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -39,15 +39,15 @@ const config = {
 	preprocess: [
 		mdsvex(mdsvexConfig),
 		preprocess({
-			postcss: true,
-		}),
+			postcss: true
+		})
 	],
 
 	kit: {
 		adapter: adapter({
-			split: false,
-		}),
-	},
+			split: false
+		})
+	}
 };
 
 export default config;

@@ -2,7 +2,7 @@ module.exports = {
 	content: [
 		'./src/**/*.svelte',
 		// may also want to include HTML files
-		'./src/**/*.html',
+		'./src/**/*.html'
 	],
 	darkMode: 'class',
 	theme: {
@@ -16,13 +16,13 @@ module.exports = {
 							borderLeft: '3px solid red',
 							fontSize: 'inherit',
 							fontStyle: 'inherit',
-							fontWeight: 'medium',
+							fontWeight: 'medium'
 						},
 						'blockquote p:first-of-type::before': {
-							content: '',
+							content: ''
 						},
 						'blockquote p:last-of-type::after': {
-							content: '',
+							content: ''
 						},
 
 						'code::before': false,
@@ -31,37 +31,37 @@ module.exports = {
 							'border-radius': '0.25rem',
 							padding: '0.15rem 0.3rem',
 							borderWidth: '2px',
-							borderColor: 'rgba(0,0,0,0.1)',
+							borderColor: 'rgba(0,0,0,0.1)'
 						},
 						'a:hover': {
 							color: '#31cdce !important',
-							textDecoration: 'underline !important',
+							textDecoration: 'underline !important'
 						},
 						a: {
 							color: '#3182ce',
-							textDecoration: 'none',
+							textDecoration: 'none'
 						},
 						'a code': {
-							color: 'unset',
+							color: 'unset'
 						},
 						'li, ul, ol': {
-							margin: 0,
+							margin: 0
 						},
 						'li > img': {
 							margin: 0,
-							display: 'inline',
+							display: 'inline'
 						},
 						'ol > li::marker': {
-							color: 'var(--tw-prose-body)',
+							color: 'var(--tw-prose-body)'
 						},
 						'ul > li::marker': {
-							color: 'var(--tw-prose-body)',
-						},
-					},
-				},
-			}),
-		},
+							color: 'var(--tw-prose-body)'
+						}
+					}
+				}
+			})
+		}
 	},
 	variants: {},
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [require('@tailwindcss/typography')]
 };
