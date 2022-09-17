@@ -50,15 +50,12 @@
 				<a href={REPO_URL}>View source here!</a>
 			</p>
 		</div>
-		<div
-			class="relative mb-8 mr-auto h-[80px] w-[80px] rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:h-[136px] sm:w-[176px]"
-		>
-			<img
-				class="relative mb-8 mr-auto w-[80px] rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:w-[176px]"
-				src="/swyx-ski.jpeg"
-				alt="swyx at Niseko"
-			/>
-		</div>
+
+		<img
+			class="relative mb-8 mr-auto rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:h-[176px] sm:w-[176px]"
+			src="/assets/profile-pic.jpg"
+			alt="headshot of me against a light brick wall"
+		/>
 	</div>
 
 	<section class="mb-16 w-full">
