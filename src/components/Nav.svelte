@@ -1,6 +1,6 @@
 <script>
+	import { REPO_OWNER } from '$lib/siteConfig';
 	import MobileMenu from './MobileMenu.svelte';
-	import { REPO_URL } from '$lib/siteConfig';
 	import NavLink from './NavLink.svelte';
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
@@ -44,10 +44,10 @@
 	</ul>
 	<div class="flex items-center space-x-4">
 		<!-- RSS -->
-		<!-- <a
+		<a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
 			rel="external"
-			href={origin + '/rss.xml'}
+			href="/rss.xml"
 			aria-label="RSS"
 		>
 			<svg
@@ -65,12 +65,12 @@
 					d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
 				/>
 			</svg>
-		</a> -->
+		</a>
 		<!-- Github -->
 		<a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
 			dark:hover:bg-yellow-800"
-			href={REPO_URL}
+			href={'https://github.com/' + REPO_OWNER}
 			aria-label="GitHub source"
 		>
 			<svg aria-hidden="true" class="h-9 w-9 p-1" fill="currentColor" viewBox="0 0 24 24">

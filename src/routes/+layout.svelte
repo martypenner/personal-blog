@@ -1,5 +1,5 @@
 <script>
-	import { MY_TWITTER_HANDLE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, REPO_OWNER, SITE_TITLE } from '$lib/siteConfig';
 	import Nav from '../components/Nav.svelte';
 	import '../tailwind.css';
 </script>
@@ -43,7 +43,7 @@
 				class="text-gray-500 transition hover:text-gray-300"
 				target="_blank"
 				rel="noopener noreferrer"
-				href={REPO_URL}
+				href={'https://github.com/' + REPO_OWNER}
 			>
 				GitHub
 			</a>

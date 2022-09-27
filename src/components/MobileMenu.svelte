@@ -1,4 +1,6 @@
 <script>
+	import { REPO_OWNER } from '$lib/siteConfig';
+
 	let isOpen = false;
 	let isMenuRendered;
 	$: {
@@ -100,7 +102,7 @@
 				<a
 					class="flex w-auto pb-4"
 					on:click={() => setTimeout(() => (isOpen = false), 300)}
-					href="https://github.com/martypenner/personal-blog">GitHub</a
+					href={'https://github.com/' + REPO_OWNER}>GitHub</a
 				>
 			</li>
 			<!-- <li
