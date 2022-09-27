@@ -1,17 +1,17 @@
+import { compile } from 'mdsvex';
 import { dev } from '$app/environment';
 import grayMatter from 'gray-matter';
-import { compile } from 'mdsvex';
 import fetch from 'node-fetch';
-import parse from 'parse-link-header';
-import rehypeAutoLink from 'rehype-autolink-headings';
-import rehypeSlug from 'rehype-slug';
-import rehypeStringify from 'rehype-stringify';
 import {
+	GH_USER_REPO,
 	APPROVED_POSTERS_GH_USERNAME,
 	GH_PUBLISHED_TAGS,
-	GH_USER_REPO,
 	REPO_OWNER
 } from './siteConfig';
+import parse from 'parse-link-header';
+import rehypeStringify from 'rehype-stringify';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutoLink from 'rehype-autolink-headings';
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -41,9 +41,9 @@ function slugify(text) {
 		.toLowerCase() // Convert the string to lowercase letters
 		.trim() // Remove whitespace from both sides of a string (optional)
 		.replace(/\s+/g, '-') // Replace spaces with hyphen
-		.replace(/[^\w-]+/g, '') // Remove all non-word chars
-		.replace(/--+/g, '-') // Replace multiple hyphen with single hyphen
-		.replace(/(^-|-$)/g, ''); // Remove leading or trailing hyphen
+		.replace(/[^\w\-]+/g, '') // Remove all non-word chars
+		.replace(/\-\-+/g, '-') // Replace multiple hyphen with single hyphen
+		.replace(/(^\-|\-$)/g, ''); // Remove leading or trailing hyphen
 }
 
 /**
@@ -125,7 +125,7 @@ export async function getContent(slug) {
 				// https://stackoverflow.com/a/27728417/1106414
 				function youtube_parser(url) {
 					var rx =
-						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
+						/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
 					return url.match(rx)[1];
 				}
 				const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
@@ -178,7 +178,7 @@ export async function getContent(slug) {
 				const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
 				return `
 					<blockquote class="twitter-tweet" data-lang="en" data-dnt="true" data-theme="dark">
-					<a href="${url}"></a></blockquote>
+					<a href="${url}"></a></blockquote> 
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					`;
 			});
