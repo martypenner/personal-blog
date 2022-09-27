@@ -64,6 +64,11 @@
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard
+				title="Sharing music with friends using fly.io, Azuracast, and Mopidy"
+				href="/sharing-music-with-friends"
+				stringData="Sept 2022"
+			/>
+			<FeatureCard
 				title="Using NVM to enforce node versions"
 				href="/using-nvm-to-enforce-node-versions"
 				stringData="Feb 2020"
