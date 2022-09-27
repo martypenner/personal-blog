@@ -52,6 +52,14 @@
 		object-fit: cover;
 		background-color: grey;
 	}
+
+	aside {
+		@apply relative border-l-4 border-l-blue-500 px-4 py-2;
+	}
+	aside::before {
+		content: '';
+		@apply absolute inset-0 block bg-blue-300/10 text-blue-500;
+	}
 }
 /* bg-yellow-200 dark:hover:bg-yellow-800 */
 a {
@@ -91,8 +99,8 @@ h6 a {
 	display: table;
 }
 
-/* 
-  CUSTOM SCROLLBARS! 
+/*
+  CUSTOM SCROLLBARS!
   - https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
   */
 body {
