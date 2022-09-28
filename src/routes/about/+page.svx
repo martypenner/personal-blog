@@ -1,14 +1,28 @@
+<svelte:head>
+  <title>About me</title>
+</svelte:head>
+
 <div class="flex justify-center">
 	<img class="rounded-xl w-96" src="/assets/headshot.jpg" alt="My face against a white brick wall" />
 </div>
 
 ## About
 
-Hey, I'm Marty! I help build great developer experiences, from documentation to dev tools.
+Hey, I'm Marty! I help build great developer experiences, from documentation to
+dev tools. I have a lot of experience with modern monorepos and React. I'm
+working on a [task manager app](https://github.com/martypenner/tasks-app) (who
+isn't these days?) that I'm aiming to be local-first, cloud-optional, and
+polished because it's fun.
 
-I am currently a [Frontend Developer at Race Roster](https://raceroster.com), based out of Ontario, Canada.
+I love reading, drumming, some writing, and figuring hard problems out. I've
+worked with a lot of tech over the 10+ years I've been a developer, and I love
+the inflection point we are at in the industry. The future is bright!
 
-You can find me on [Twitter](https://twitter.com/MartyPenner) (if you enjoy a pretty quiet feed) and [Github](https://github.com/martypenner)!
+I am currently a [Frontend Developer at Race Roster](https://raceroster.com),
+based out of Ontario, Canada.
+
+You can find me on [Twitter](https://twitter.com/MartyPenner) (if you enjoy a
+pretty quiet feed) and [Github](https://github.com/martypenner)!
 
 ## Tech behind this site
 
