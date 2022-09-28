@@ -1,4 +1,6 @@
-<img class="rounded-full h-28 w-28 float-right" src="/assets/profile-pic.jpg" alt="My face against a white brick wall" />
+<div class="flex justify-center">
+	<img class="rounded-xl w-96" src="/assets/headshot.jpg" alt="My face against a white brick wall" />
+</div>
 
 ## About
 

@@ -1,6 +1,7 @@
 module.exports = {
 	content: [
 		'./src/**/*.svelte',
+		'./src/**/*.svx',
 		// may also want to include HTML files
 		'./src/**/*.html'
 	],
