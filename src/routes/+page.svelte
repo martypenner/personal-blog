@@ -64,6 +64,11 @@
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard
+				title="Getting Tauri App Working in WSL"
+				href="/getting-tauri-app-working-in-wsl"
+				stringData="Oct 2022"
+			/>
+			<FeatureCard
 				title="Sharing music with friends using fly.io, Azuracast, and Mopidy"
 				href="/sharing-music-with-friends"
 				stringData="Sept 2022"
@@ -72,11 +77,6 @@
 				title="Using NVM to enforce node versions"
 				href="/using-nvm-to-enforce-node-versions"
 				stringData="Feb 2020"
-			/>
-			<FeatureCard
-				title="Manipulating SVGs with CSS"
-				href="/manipulating-svg-with-css"
-				stringData="Mar 2019"
 			/>
 		</div>
 		<a
