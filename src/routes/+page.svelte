@@ -64,8 +64,8 @@
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard
-				title="Getting Tauri App Working in WSL"
-				href="/getting-tauri-app-working-in-wsl"
+				title="Getting Tauri working in WSL"
+				href="/getting-tauri-working-in-wsl"
 				stringData="Oct 2022"
 			/>
 			<FeatureCard
