@@ -47,7 +47,9 @@
 				Because keystrokes shared publicly are not wasted.
 			</h2>
 			<p class="mb-16 text-gray-600 dark:text-gray-400">
-				<a href={REPO_URL}>View source here!</a>
+				<a class="text-gray-600 dark:text-gray-400" sveltekit:prefetch href="/about"
+					>More on About page</a
+				>
 			</p>
 		</div>
 
