@@ -1,5 +1,5 @@
 <script>
-	import { MY_TWITTER_HANDLE, REPO_OWNER, SITE_TITLE } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, REPO_OWNER, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 	import Nav from '../components/Nav.svelte';
 	import '../tailwind.css';
 </script>
@@ -61,5 +61,7 @@
 		This blog is based on the
 		<a href="https://swyxkit.netlify.app/">swyxkit</a>
 		template.
+
+		<a href={REPO_URL}>View source here!</a>
 	</p>
 </footer>
