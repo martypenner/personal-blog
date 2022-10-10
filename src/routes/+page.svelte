@@ -2,13 +2,17 @@
 	import {
 		DEFAULT_OG_IMAGE,
 		MY_TWITTER_HANDLE,
-		REPO_URL,
 		SITE_DESCRIPTION,
 		SITE_TITLE,
 		SITE_URL
 	} from '$lib/siteConfig';
-	import FeatureCard from '../components/FeatureCard.svelte';
-	export const prerender = true; // index page is most visited, lets prerender
+
+	/** @type {import('./$types').PageData} */
+	export let data;
+
+	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
+	/** @type {import('$lib/types').ContentItem[]} */
+	$: items = data.items.slice(0, 10);
 </script>
 
 <svelte:head>
@@ -62,9 +66,20 @@
 
 	<section class="mb-16 w-full">
 		<h3 class="mb-6 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
-			Featured Posts
+			Latest Posts
 		</h3>
-		<div class="flex flex-col gap-6 md:flex-row">
+		<ul class="text-white">
+			{#each items as item (item.slug)}
+				<li>
+					<a sveltekit:prefetch href={item.slug}>{item.title}</a>
+					<span class="text-xs text-black dark:text-gray-400"
+						>{new Date(item.date).toISOString().slice(0, 10)}</span
+					>
+				</li>
+			{/each}
+		</ul>
+
+		<!-- <div class="flex flex-col gap-6 md:flex-row">
 			<FeatureCard
 				title="Getting Tauri working in WSL"
 				href="/getting-tauri-working-in-wsl"
@@ -80,7 +95,7 @@
 				href="/using-nvm-to-enforce-node-versions"
 				stringData="Feb 2020"
 			/>
-		</div>
+		</div> -->
 		<a
 			class="mt-8 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"
 			href="/blog"
