@@ -37,7 +37,8 @@
 				"bradlc.vscode-tailwindcss",
 				"gruntfuggly.todo-tree",
 				"zixuanchen.vitest-explorer",
-				"svelte.svelte-vscode"
+				"svelte.svelte-vscode",
+				"ms-playwright.playwright"
 			],
 
 			"settings": {
