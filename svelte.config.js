@@ -4,6 +4,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkAbbr from 'remark-abbr';
 import remarkGithub from 'remark-github';
+import remarkPrism from 'remark-prism';
 import preprocess from 'svelte-preprocess';
 
 // mdsvex config
@@ -20,7 +21,8 @@ const mdsvexConfig = {
 				repository: 'https://github.com/martypenner/personal-blog.git'
 			}
 		],
-		remarkAbbr
+		remarkAbbr,
+		remarkPrism
 	],
 	rehypePlugins: [
 		rehypeSlug,
