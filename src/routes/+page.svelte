@@ -58,7 +58,7 @@
 		</div>
 
 		<img
-			class="relative mb-8 mr-auto rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:h-[176px] sm:w-[176px]"
+			class="relative mx-auto mb-8 h-48 w-48 rounded-full bg-cyan-300 bg-opacity-25 sm:mr-auto sm:mb-0 sm:h-[170px] sm:w-[170px] md:h-[140px] md:w-[140px]"
 			src="/assets/profile-pic.jpg"
 			alt="headshot of me against a light brick wall"
 		/>
