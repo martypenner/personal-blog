@@ -1,11 +1,11 @@
 # https://github.com/withastro/astro/blob/main/.github/workflows/nightly.yml#L33-L70
 
-name: 'Nightly'
+name: 'Update lockfile'
 
 on:
   schedule:
-    # Runs at 12:00 UTC daily
-    - cron: '0 12 * * *'
+    # Runs at midnight on the first day of the month UTC
+    - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
