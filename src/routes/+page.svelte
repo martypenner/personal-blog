@@ -50,7 +50,14 @@
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				Because keystrokes shared publicly are not wasted.
 			</h2>
-			<p class="mb-16 text-gray-600 dark:text-gray-400">
+			<p class="mb-16 flex flex-col text-gray-600 dark:text-gray-400">
+				<a
+					class="text-gray-600 dark:text-gray-400"
+					sveltekit:prefetch
+					href="https://marketplace.visualstudio.com/items?itemName=MartyPenner.vscode-css-autocomplete"
+				>
+					Looking for my VSCode extension called "CSS to Go"?
+				</a>
 				<a class="text-gray-600 dark:text-gray-400" sveltekit:prefetch href="/about"
 					>More on About page</a
 				>
@@ -58,7 +65,7 @@
 		</div>
 
 		<img
-			class="relative mx-auto mb-8 h-48 w-48 rounded-full bg-cyan-300 bg-opacity-25 sm:mr-auto sm:mb-0 sm:h-[170px] sm:w-[170px] md:h-[140px] md:w-[140px]"
+			class="relative mx-auto mb-8 h-48 w-48 rounded-full bg-cyan-300 bg-opacity-25 sm:mb-0 sm:mr-auto sm:h-[170px] sm:w-[170px] md:h-[140px] md:w-[140px]"
 			src="/assets/profile-pic.jpg"
 			alt="headshot of me against a light brick wall"
 		/>

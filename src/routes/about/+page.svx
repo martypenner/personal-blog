@@ -9,10 +9,12 @@
 ## About
 
 Hey, I'm Marty! I help build great developer experiences, from documentation to
-dev tools. I have a lot of experience with modern monorepos and React. I'm
-working on a [task manager app](https://github.com/martypenner/tasks-app) (who
-isn't these days?) that I'm aiming to be local-first, cloud-optional, and
-polished because it's fun.
+dev tools. I have a lot of experience with modern monorepos and React. I built a
+[VSCode extension (called "CSS to Go")](https://marketplace.visualstudio.com/items?itemName=MartyPenner.vscode-css-autocomplete)
+in mostly Rust for autocompleting CSS classnames. I've worked on a
+[task manager app](https://github.com/martypenner/tasks-app) (who hasn't these
+days?) that I'm aiming to be local-first, cloud-optional, and polished because
+it's fun.
 
 I love reading, drumming, some writing, and figuring hard problems out. I've
 worked with a lot of tech over the 10+ years I've been a developer, and I love

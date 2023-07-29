@@ -58,12 +58,12 @@
 		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
 	/>
 
-	<div class="prose mt-16 mb-32 w-full max-w-none dark:prose-invert">
+	<div class="prose mb-32 mt-16 w-full max-w-none dark:prose-invert">
 		{@html json.content}
 	</div>
 </article>
 <div class="mx-auto max-w-2xl">
-	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
+	<div class="prose mb-12 border-b border-t border-blue-800 p-4 dark:prose-invert">
 		{#if json.ghMetadata.reactions.total_count > 0}
 			Reactions: <Reactions
 				issueUrl={json.ghMetadata.issueUrl}

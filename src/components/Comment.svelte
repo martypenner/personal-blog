@@ -70,7 +70,7 @@
 			<div class="ml-2 flex-1 px-2">
 				{@html body}
 			</div>
-			<div class="ml-2 mb-4 flex-1 px-2">
+			<div class="mb-4 ml-2 flex-1 px-2">
 				<Reactions issueUrl={comment.issue_url} reactions={comment.reactions} />
 			</div>
 		</div>
