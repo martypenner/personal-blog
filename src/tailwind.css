@@ -29,7 +29,12 @@
 		color: var(--brand-accent);
 	}
 
-	:is(::-webkit-calendar-picker-indicator, ::-webkit-clear-button, ::-webkit-inner-spin-button, ::-webkit-outer-spin-button) {
+	:is(
+			::-webkit-calendar-picker-indicator,
+			::-webkit-clear-button,
+			::-webkit-inner-spin-button,
+			::-webkit-outer-spin-button
+		) {
 		color: var(--brand-accent);
 	}
 

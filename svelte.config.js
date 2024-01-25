@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from 'svelte-kit-sst';
 import { mdsvex } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -44,9 +44,7 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter({
-			split: false
-		})
+		adapter: adapter()
 	}
 };
 
