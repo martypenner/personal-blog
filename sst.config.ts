@@ -1,6 +1,7 @@
 import type { SSTConfig } from 'sst';
 import { Certificate, CertificateValidation } from 'aws-cdk-lib/aws-certificatemanager';
 import { SvelteKitSite } from 'sst/constructs';
+import { RemovalPolicy } from 'aws-cdk-lib/core';
 
 export default {
 	config(_input) {
@@ -16,6 +17,9 @@ export default {
 				subjectAlternativeNames: ['penner.me'],
 				validation: CertificateValidation.fromDns()
 			});
+			if (stack.stage === 'prod') {
+				certificate.applyRemovalPolicy(RemovalPolicy.RETAIN);
+			}
 
 			const site = new SvelteKitSite(stack, 'site', {
 				customDomain: {
@@ -31,5 +35,7 @@ export default {
 				url: site.url
 			});
 		});
+
+		app.setDefaultRemovalPolicy('destroy');
 	}
 } satisfies SSTConfig;
