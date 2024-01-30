@@ -1,9 +1,9 @@
 export const SITE_URL = 'https://penner.me';
 export const APPROVED_POSTERS_GH_USERNAME = ['martypenner'];
 export const GH_USER_REPO = 'martypenner/personal-blog'; // used for pulling github issues and offering comments
-export const SITE_TITLE = 'My Blog';
+export const SITE_TITLE = `Marty's Random Thoughts`;
 export const SITE_DESCRIPTION =
-	'My personal blog, because keystrokes shared publicly are not wasted.';
+	'My personal thoughts and musings, because keystrokes shared publicly are not wasted.';
 export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
 export const MY_TWITTER_HANDLE = 'MartyPenner';
