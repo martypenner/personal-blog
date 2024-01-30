@@ -1,6 +1,6 @@
 import type { SSTConfig } from 'sst';
 import { Certificate, CertificateValidation } from 'aws-cdk-lib/aws-certificatemanager';
-import { SvelteKitSite } from 'sst/constructs';
+import { Config, SvelteKitSite } from 'sst/constructs';
 import { RemovalPolicy } from 'aws-cdk-lib/core';
 
 export default {
@@ -12,6 +12,8 @@ export default {
 	},
 	stacks(app) {
 		app.stack(function Site({ stack }) {
+			const GH_TOKEN = new Config.Secret(stack, 'GH_TOKEN');
+
 			const certificate = new Certificate(this, 'Certificate', {
 				domainName: '*.penner.me',
 				subjectAlternativeNames: ['penner.me'],
@@ -28,7 +30,8 @@ export default {
 					cdk: {
 						certificate
 					}
-				}
+				},
+				bind: [GH_TOKEN]
 			});
 
 			stack.addOutputs({

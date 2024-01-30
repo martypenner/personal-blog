@@ -12,6 +12,9 @@ import parse from 'parse-link-header';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
+import { Config } from 'sst/node/config';
+
+const GH_TOKEN = Config.GH_TOKEN;
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -63,8 +66,8 @@ export async function listContent() {
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
-	const authheader = process.env.GH_TOKEN && {
-		Authorization: `token ${process.env.GH_TOKEN}`
+	const authheader = GH_TOKEN && {
+		Authorization: `token ${GH_TOKEN}`
 	};
 	let url =
 		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
@@ -112,9 +115,7 @@ export async function getContent(slug) {
 		allBlogposts = await listContent();
 		console.log('loaded ' + allBlogposts.length + ' blogposts');
 		if (!allBlogposts.length)
-			throw new Error(
-				'failed to load blogposts for some reason. check token' + process.env.GH_TOKEN
-			);
+			throw new Error('failed to load blogposts for some reason. check token' + GH_TOKEN);
 	}
 	if (!allBlogposts.length) throw new Error('no blogposts');
 	// find the blogpost that matches this slug
@@ -178,7 +179,7 @@ export async function getContent(slug) {
 				const url = x.startsWith('https://twitter.com/') ? x : `https://twitter.com/x/status/${x}`;
 				return `
 					<blockquote class="twitter-tweet" data-lang="en" data-dnt="true" data-theme="dark">
-					<a href="${url}"></a></blockquote> 
+					<a href="${url}"></a></blockquote>
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					`;
 			});
