@@ -37,20 +37,19 @@
 >
 	<div class="flex flex-col-reverse items-start sm:flex-row">
 		<div class="flex flex-col pr-8">
-			<h1 class="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-				This is
-
+			<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 				<span
 					class="relative ml-2 inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
 				>
-					<span class="relative skew-y-3 text-yellow-400">{SITE_TITLE}</span>
+					<span class="relative skew-y-3 text-yellow-400">{SITE_TITLE}!</span>
 				</span>
-				!
 			</h1>
-			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
+			<h2 class="mb-6 text-gray-700 dark:text-gray-200">
 				Because keystrokes shared publicly are not wasted.
 			</h2>
 			<p class="mb-16 flex flex-col text-gray-600 dark:text-gray-400">
+				<a class="text-gray-600 dark:text-gray-400 mb-2" sveltekit:prefetch href="/about"
+					>More about me</a>
 				<a
 					class="text-gray-600 dark:text-gray-400"
 					sveltekit:prefetch
@@ -58,9 +57,6 @@
 				>
 					Looking for my VSCode extension called "CSS to Go"?
 				</a>
-				<a class="text-gray-600 dark:text-gray-400" sveltekit:prefetch href="/about"
-					>More on About page</a
-				>
 			</p>
 		</div>
 
