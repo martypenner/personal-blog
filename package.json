@@ -13,7 +13,7 @@
 		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write --plugin-search-dir=. .",
 		"prepare": "husky install",
-		"sst:deploy": "sst deploy",
+		"sst:deploy": "sst deploy --stage prod",
 		"sst:dev": "sst dev"
 	},
 	"lint-staged": {
